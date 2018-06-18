@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTurk Calc", "MTurk Calc\MTurk Calc.csproj", "{595C10ED-56A1-4351-87B9-4021A54D0662}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{595C10ED-56A1-4351-87B9-4021A54D0662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{595C10ED-56A1-4351-87B9-4021A54D0662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{595C10ED-56A1-4351-87B9-4021A54D0662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{595C10ED-56A1-4351-87B9-4021A54D0662}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6067B972-9C56-44FA-AD07-16C45CA90A83}
+	EndGlobalSection
+EndGlobal
