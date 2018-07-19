@@ -21,8 +21,10 @@ namespace MTurk_Calc
     /// </summary>
     public partial class AddWindow : Window, IClosableDialog
     {
-        public SQLiteConnection conn{ get; set; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public AddWindow()
         {
             InitializeComponent();
@@ -30,9 +32,13 @@ namespace MTurk_Calc
             this.DataContext = new AddViewModel();
         }
 
+        /// <summary>
+        /// Takes focus off calendar object immediately after click event. This saves the user from having to do an extra click to interact with another element.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Calendar_GotMouseCapture(object sender, MouseEventArgs e)
         {
-            //Prevents an extra click to take focus off calendar
             UIElement originalElement = e.OriginalSource as UIElement;
             if (originalElement is CalendarDayButton || originalElement is CalendarItem)
             {
@@ -40,6 +46,10 @@ namespace MTurk_Calc
             }
         }
 
+        /// <summary>
+        /// Closes window and sets DialogResult based on if the HIT was added successfully.
+        /// </summary>
+        /// <param name="success">True if HIT was added successfully, false if not.</param>
         public void Close(bool success)
         {
             if (success)
