@@ -271,7 +271,6 @@ namespace MTurk_Calc
                 {
                     transaction.Rollback();
                     Console.WriteLine(e.ToString());
-                    Console.WriteLine("HIT was not updated");
                 }
 
                 success = false;
