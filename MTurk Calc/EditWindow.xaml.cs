@@ -48,11 +48,5 @@ namespace MTurk_Calc
                 originalElement.ReleaseMouseCapture();
             }
         }
-
-        private void calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Changes displayed text in TextBox "date"
-            date.Text = calendar.SelectedDate.Value.Date.ToShortDateString();
-        }
     }
 }

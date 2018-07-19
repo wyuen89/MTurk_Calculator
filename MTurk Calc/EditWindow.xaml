@@ -20,7 +20,7 @@
         <ComboBox ItemsSource="{Binding statusValues}" SelectedValue="{Binding status}"></ComboBox>
         <TextBlock>Date:</TextBlock>
         <TextBox x:Name="date" IsEnabled="False" Text="{Binding date, Mode=TwoWay}"></TextBox>
-        <Calendar x:Name="calendar" DisplayDate="{Binding selectedDate}" SelectedDate="{Binding selectedDate}" GotMouseCapture="Calendar_GotMouseCapture" SelectedDatesChanged="calendar_SelectedDatesChanged"></Calendar>
+        <Calendar x:Name="calendar" DisplayDate="{Binding date}" SelectedDate="{Binding date, Mode=TwoWay}" GotMouseCapture="Calendar_GotMouseCapture"></Calendar>
 
         <UniformGrid HorizontalAlignment="Center">
             <Button Command="{Binding cancelCommand}" CommandParameter="{Binding ElementName=editWindow}"  Margin="10">Cancel</Button>
