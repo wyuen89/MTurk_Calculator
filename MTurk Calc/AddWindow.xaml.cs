@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +10,34 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
 using System.Data.SQLite;
+using System.Windows.Controls.Primitives;
 
 namespace MTurk_Calc
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, IClosableDialog
+    public partial class AddWindow : Window, IClosableDialog
     {
-        public MainWindow()
+        public SQLiteConnection conn{ get; set; }
+
+        public AddWindow()
         {
             InitializeComponent();
-            this.DataContext = new HitStructureViewModel();
+
+            this.DataContext = new AddViewModel();
+        }
+
+        private void Calendar_GotMouseCapture(object sender, MouseEventArgs e)
+        {
+            //Prevents an extra click to take focus off calendar
+            UIElement originalElement = e.OriginalSource as UIElement;
+            if (originalElement is CalendarDayButton || originalElement is CalendarItem)
+            {
+                originalElement.ReleaseMouseCapture();
+            }
         }
 
         public void Close(bool success)
