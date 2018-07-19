@@ -82,9 +82,10 @@ namespace MTurk_Calc
 
             set
             {
-                _date = value;
+                _date = DateTime.Parse(value).ToShortDateString();
                 canExecute = FieldsFilled();
                 saveCommand.RaiseCanExecuteChanged();
+                this.OnPropertyChanged("date");
             }
         }
 
