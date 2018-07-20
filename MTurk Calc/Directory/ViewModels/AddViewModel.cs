@@ -25,9 +25,19 @@ namespace MTurk_Calc
         private String _bonus;
         private String _date;
 
+        /// <summary>
+        /// The status of the HIT.
+        /// </summary>
         public String selected { get; set; }
+
+        /// <summary>
+        /// The possible statuses.
+        /// </summary>
         public String[] status { get; set; }
 
+        /// <summary>
+        /// The HIT's requester's name.
+        /// </summary>
         public String requester
         {
             get
@@ -42,6 +52,10 @@ namespace MTurk_Calc
                 addCommand.RaiseCanExecuteChanged();
             }
         }
+
+        /// <summary>
+        /// The HIT's name.
+        /// </summary>
         public String name
         {
             get
@@ -56,6 +70,10 @@ namespace MTurk_Calc
                 addCommand.RaiseCanExecuteChanged();
             }
         }
+
+        /// <summary>
+        /// The HIT's base payment amount.
+        /// </summary>
         public String amount
         {
             get
@@ -70,6 +88,10 @@ namespace MTurk_Calc
                 addCommand.RaiseCanExecuteChanged();
             }
         }
+
+        /// <summary>
+        /// The HIT's bonus payment amount.
+        /// </summary>
         public String bonus
         {
             get
@@ -84,6 +106,10 @@ namespace MTurk_Calc
                 addCommand.RaiseCanExecuteChanged();
             }
         }
+
+        /// <summary>
+        /// The HIT's date.
+        /// </summary>
         public String date
         {
             get
@@ -100,10 +126,24 @@ namespace MTurk_Calc
             }
         }
 
+        /// <summary>
+        /// Command to cancel adding a new HIT.
+        /// </summary>
         public RelayCommand<IClosableDialog> cancelCommand { get; set; }
+
+        /// <summary>
+        /// Command to add a new HIT.
+        /// </summary>
         public RelayCommand<IClosableDialog> addCommand { get; set; }
+
+        /// <summary>
+        /// Tells whether it's possible for addCommand to execute.
+        /// </summary>
         public bool canExecute { get; set; }
 
+        /// <summary>
+        /// Default Constructor.
+        /// </summary>
         public AddViewModel()
         {
             _requester = "";
@@ -121,6 +161,10 @@ namespace MTurk_Calc
             addCommand = new RelayCommand<IClosableDialog>(param => this.Add(param), param => canExecute);
         }
 
+        /// <summary>
+        /// Adds a new HIT to the database.
+        /// </summary>
+        /// <param name="window"></param>
         private void Add(IClosableDialog window)
         {
             window.Close(true);
@@ -128,11 +172,19 @@ namespace MTurk_Calc
 
         }
 
+        /// <summary>
+        /// Closes current window without entering a new HIT to the database.
+        /// </summary>
+        /// <param name="window"></param>
         private void Cancel(IClosableDialog window)
         {
             window.Close(false);
         }
 
+        /// <summary>
+        /// Checks if all fields are filled in and not empty strings.
+        /// </summary>
+        /// <returns></returns>
         private bool FieldsFilled()
         {
             if (requester.Equals("") || name.Equals("") || amount.Equals("") || bonus.Equals("") || date.Equals(""))

@@ -9,6 +9,10 @@ namespace MTurk_Calc
 {
     public static class HitStructure
     {
+        /// <summary>
+        /// Gets all HITs in database as an ArrayList of HitInfo
+        /// </summary>
+        /// <returns>An ArrayList of HitInfos</returns>
         public static ArrayList getHITs()
         {
             return DbUtility.getHITs();

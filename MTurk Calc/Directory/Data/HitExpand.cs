@@ -10,8 +10,14 @@ namespace MTurk_Calc
 {
     class HitExpand: Expander
     {
+        /// <summary>
+        /// The date for the group of HITs in hitList.
+        /// </summary>
         public String header { get; set; }
 
+        /// <summary>
+        /// The collection of all the HITs in the database as HitInfo objects.
+        /// </summary>
         public ObservableCollection<HitInfo> hitList { get; set; }
     }
 }

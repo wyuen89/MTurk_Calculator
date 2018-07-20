@@ -11,18 +11,42 @@ namespace MTurk_Calc
 {
     class HitExpandViewModel : BaseViewModel
     {
-        public HitInfoViewModel _selected { get; set; }
-        public int _index { get; set; }
+        private HitInfoViewModel _selected { get; set; }
+        private int _index { get; set; }
 
+        /// <summary>
+        /// A collection of HITs for this date as HitInfoViewModels.
+        /// </summary>
         public ObservableCollection<HitInfoViewModel> hitList { get; set; }
+
+        /// <summary>
+        /// The date for this collection of HITs
+        /// </summary>
         public String header { get; set; }
 
+        /// <summary>
+        /// Command to edit a HIT.
+        /// </summary>
         public RelayCommand editCommand { get; set; }
+
+        /// <summary>
+        /// Command to delete a HIT.
+        /// </summary>
         public RelayCommand deleteCommand { get; set; }
 
+        /// <summary>
+        /// Total amount for this group of HITs.
+        /// </summary>
         public double total { get; set; }
+
+        /// <summary>
+        /// Total pending amount for this group of HITs.
+        /// </summary>
         public double pending { get; set; }
 
+        /// <summary>
+        /// The selected HitInfoViewModel
+        /// </summary>
         public HitInfoViewModel selected
         {
             get
@@ -36,6 +60,9 @@ namespace MTurk_Calc
             }
         }
 
+        /// <summary>
+        /// The index of the selected HitInfoViewModel
+        /// </summary>
         public int index
         {
             get
@@ -49,6 +76,11 @@ namespace MTurk_Calc
             }
         }
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="header">The date for this group of HITs.</param>
+        /// <param name="hitlist">Collection of HITs as HitInfoViewModels</param>
         public HitExpandViewModel(String header, ObservableCollection<HitInfoViewModel> hitlist)
         {
             index = -1;
@@ -60,6 +92,9 @@ namespace MTurk_Calc
             pending = 0.00;
         }
 
+        /// <summary>
+        /// Opens an edit window for the selected object.
+        /// </summary>
         public void edit()
         {
             Console.WriteLine(selected.id);
@@ -74,6 +109,9 @@ namespace MTurk_Calc
                 
         }
 
+        /// <summary>
+        /// Deletes the selected HIT from the database.
+        /// </summary>
         public void delete()
         {
             DbUtility.delete(selected.id);

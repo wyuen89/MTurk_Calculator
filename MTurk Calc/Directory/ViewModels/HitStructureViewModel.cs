@@ -11,11 +11,22 @@ namespace MTurk_Calc
 {
     class HitStructureViewModel : BaseViewModel
     {
-        ObservableCollection<HitExpandViewModel> _hitExpands { get; set; }
 
+        private ObservableCollection<HitExpandViewModel> _hitExpands { get; set; }
+
+        /// <summary>
+        /// Total amount of every HIT.
+        /// </summary>
         public double allTotal { get; set; }
+
+        /// <summary>
+        /// Total amount of every pending HIT.
+        /// </summary>
         public double allPending { get; set; }
 
+        /// <summary>
+        /// Collection of all the HitExpandViewModels which in turn holds all the HITs.
+        /// </summary>
         public ObservableCollection<HitExpandViewModel> hitExpands
         {
             get
@@ -29,8 +40,16 @@ namespace MTurk_Calc
                 this.OnPropertyChanged("hitExpands");
             }
         }
+
+        /// <summary>
+        /// Command to open window to add a HIT.
+        /// </summary>
         public RelayCommand addCommand { get; set; }
 
+
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public HitStructureViewModel()
         {
             allTotal = 0.0;
@@ -44,11 +63,17 @@ namespace MTurk_Calc
 
         }
 
+        /// <summary>
+        /// Call to initialize database if it didn't exist before by creating the needed tables.
+        /// </summary>
         private void InitializeDb()
         {
             DbUtility.createTables();
         }
 
+        /// <summary>
+        /// Opens a window to add a HIT.
+        /// </summary>
         private void SpawnAddViewModel()
         {
             var add = new AddWindow();
@@ -63,6 +88,10 @@ namespace MTurk_Calc
             }
         }
 
+        /// <summary>
+        /// Gets and converts HIT information into view models.
+        /// </summary>
+        /// <returns></returns>
         private ObservableCollection<HitExpandViewModel> CreateHitExpands()
         {
             ObservableCollection<HitExpandViewModel> ret = new ObservableCollection<HitExpandViewModel>();
@@ -117,9 +146,11 @@ namespace MTurk_Calc
             return ret;
         }
 
+        /// <summary>
+        /// Refreshes the view with the latest state of the database.
+        /// </summary>
         private void Refresh()
         {
-            Console.WriteLine("Refresh called");
             hitExpands = CreateHitExpands();
         }
     }
