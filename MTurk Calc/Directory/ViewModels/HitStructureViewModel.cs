@@ -11,7 +11,6 @@ namespace MTurk_Calc
 {
     class HitStructureViewModel : BaseViewModel
     {
-        HitInfoViewModel _selected { get; set; }
         ObservableCollection<HitExpandViewModel> _hitExpands { get; set; }
 
         public double allTotal { get; set; }
