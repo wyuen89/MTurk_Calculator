@@ -8,8 +8,19 @@ namespace MTurk_Calc
 {
     public enum Status
     {
+        /// <summary>
+        /// Waiting to be approved or rejected.
+        /// </summary>
         Pending,
+
+        /// <summary>
+        /// Approved but not paid yet.
+        /// </summary>
         Approved,
+
+        /// <summary>
+        /// Approved and paid.
+        /// </summary>
         Paid
     }
 }
