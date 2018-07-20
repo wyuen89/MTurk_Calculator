@@ -21,27 +21,15 @@ namespace MTurk_Calc
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, IClosableDialog
+    public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Default Constructor.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = new HitStructureViewModel();
-        }
-
-        public void Close(bool success)
-        {
-            if (success)
-            {
-                DialogResult = true;
-                Close();
-            }
-
-            else
-            {
-                DialogResult = false;
-                Close();
-            }
         }
     }
 }
